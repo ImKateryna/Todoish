@@ -3,27 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		26586504236133310062B5A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586503236133310062B5A6 /* AppDelegate.swift */; };
-		26586506236133310062B5A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586505236133310062B5A6 /* SceneDelegate.swift */; };
-		26586508236133310062B5A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586507236133310062B5A6 /* ViewController.swift */; };
-		2658650B236133310062B5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26586509236133310062B5A6 /* Main.storyboard */; };
+		26586508236133310062B5A6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586507236133310062B5A6 /* RootViewController.swift */; };
 		2658650D236133340062B5A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2658650C236133340062B5A6 /* Assets.xcassets */; };
 		26586510236133340062B5A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2658650E236133340062B5A6 /* LaunchScreen.storyboard */; };
+		2658651B23613A1C0062B5A6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651A23613A1C0062B5A6 /* RootView.swift */; };
+		2658651D236140CD0062B5A6 /* RootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651C236140CD0062B5A6 /* RootCell.swift */; };
+		2658651F2361432C0062B5A6 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651E2361432C0062B5A6 /* MainCell.swift */; };
+		F274C465D8A459B6C374441D /* Pods_Todoish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26586500236133310062B5A6 /* Todoish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26586503236133310062B5A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26586505236133310062B5A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		26586507236133310062B5A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2658650A236133310062B5A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26586507236133310062B5A6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		2658650C236133340062B5A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2658650F236133340062B5A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26586511236133340062B5A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2658651A23613A1C0062B5A6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		2658651C236140CD0062B5A6 /* RootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCell.swift; sourceTree = "<group>"; };
+		2658651E2361432C0062B5A6 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		5B0AFC878F0B12C28B5D6589 /* Pods-Todoish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.release.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.release.xcconfig"; sourceTree = "<group>"; };
+		5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88480ECDB478131AA479658B /* Pods-Todoish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.debug.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F274C465D8A459B6C374441D /* Pods_Todoish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				26586502236133310062B5A6 /* Todoish */,
 				26586501236133310062B5A6 /* Products */,
+				2B6839EDF1A4FA9B766B6E35 /* Pods */,
+				F164D5D4BC6FB184AC302D42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +65,57 @@
 		26586502236133310062B5A6 /* Todoish */ = {
 			isa = PBXGroup;
 			children = (
-				26586503236133310062B5A6 /* AppDelegate.swift */,
-				26586505236133310062B5A6 /* SceneDelegate.swift */,
-				26586507236133310062B5A6 /* ViewController.swift */,
-				26586509236133310062B5A6 /* Main.storyboard */,
-				2658650C236133340062B5A6 /* Assets.xcassets */,
 				2658650E236133340062B5A6 /* LaunchScreen.storyboard */,
-				26586511236133340062B5A6 /* Info.plist */,
+				26586518236133740062B5A6 /* App */,
+				265865192361337E0062B5A6 /* Screen */,
+				26586517236133600062B5A6 /* Resources */,
 			);
 			path = Todoish;
+			sourceTree = "<group>";
+		};
+		26586517236133600062B5A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2658650C236133340062B5A6 /* Assets.xcassets */,
+				26586511236133340062B5A6 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		26586518236133740062B5A6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				26586503236133310062B5A6 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		265865192361337E0062B5A6 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				26586507236133310062B5A6 /* RootViewController.swift */,
+				2658651A23613A1C0062B5A6 /* RootView.swift */,
+				2658651E2361432C0062B5A6 /* MainCell.swift */,
+				2658651C236140CD0062B5A6 /* RootCell.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		2B6839EDF1A4FA9B766B6E35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88480ECDB478131AA479658B /* Pods-Todoish.debug.xcconfig */,
+				5B0AFC878F0B12C28B5D6589 /* Pods-Todoish.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F164D5D4BC6FB184AC302D42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26586514236133340062B5A6 /* Build configuration list for PBXNativeTarget "Todoish" */;
 			buildPhases = (
+				0940E2602345CBB2C5BCBD9F /* [CP] Check Pods Manifest.lock */,
 				265864FC236133310062B5A6 /* Sources */,
 				265864FD236133310062B5A6 /* Frameworks */,
 				265864FE236133310062B5A6 /* Resources */,
+				E64A447B1AB7138FBBDEBB03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +180,69 @@
 			files = (
 				26586510236133340062B5A6 /* LaunchScreen.storyboard in Resources */,
 				2658650D236133340062B5A6 /* Assets.xcassets in Resources */,
-				2658650B236133310062B5A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0940E2602345CBB2C5BCBD9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Todoish-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E64A447B1AB7138FBBDEBB03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Todoish/Pods-Todoish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Todoish/Pods-Todoish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Todoish/Pods-Todoish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		265864FC236133310062B5A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26586508236133310062B5A6 /* ViewController.swift in Sources */,
+				26586508236133310062B5A6 /* RootViewController.swift in Sources */,
+				2658651D236140CD0062B5A6 /* RootCell.swift in Sources */,
 				26586504236133310062B5A6 /* AppDelegate.swift in Sources */,
-				26586506236133310062B5A6 /* SceneDelegate.swift in Sources */,
+				2658651B23613A1C0062B5A6 /* RootView.swift in Sources */,
+				2658651F2361432C0062B5A6 /* MainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		26586509236133310062B5A6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2658650A236133310062B5A6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2658650E236133340062B5A6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,10 +370,11 @@
 		};
 		26586515236133340062B5A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88480ECDB478131AA479658B /* Pods-Todoish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Todoish/Info.plist;
+				INFOPLIST_FILE = Todoish/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,10 +388,11 @@
 		};
 		26586516236133340062B5A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B0AFC878F0B12C28B5D6589 /* Pods-Todoish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Todoish/Info.plist;
+				INFOPLIST_FILE = Todoish/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
