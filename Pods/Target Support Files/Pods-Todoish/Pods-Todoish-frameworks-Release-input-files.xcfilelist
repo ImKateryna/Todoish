@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Todoish/Pods-Todoish-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework
+${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework

@@ -14,6 +14,8 @@
 		2658651B23613A1C0062B5A6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651A23613A1C0062B5A6 /* RootView.swift */; };
 		2658651D236140CD0062B5A6 /* RootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651C236140CD0062B5A6 /* RootCell.swift */; };
 		2658651F2361432C0062B5A6 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651E2361432C0062B5A6 /* MainCell.swift */; };
+		26586521236178D20062B5A6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586520236178D20062B5A6 /* Colors.swift */; };
+		26586523236AA83C0062B5A6 /* BlurLayerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */; };
 		F274C465D8A459B6C374441D /* Pods_Todoish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		2658651A23613A1C0062B5A6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		2658651C236140CD0062B5A6 /* RootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCell.swift; sourceTree = "<group>"; };
 		2658651E2361432C0062B5A6 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		26586520236178D20062B5A6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurLayerCreator.swift; sourceTree = "<group>"; };
 		5B0AFC878F0B12C28B5D6589 /* Pods-Todoish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.release.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.release.xcconfig"; sourceTree = "<group>"; };
 		5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88480ECDB478131AA479658B /* Pods-Todoish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.debug.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			children = (
 				2658650C236133340062B5A6 /* Assets.xcassets */,
 				26586511236133340062B5A6 /* Info.plist */,
+				26586520236178D20062B5A6 /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				26586507236133310062B5A6 /* RootViewController.swift */,
+				26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */,
 				2658651A23613A1C0062B5A6 /* RootView.swift */,
 				2658651E2361432C0062B5A6 /* MainCell.swift */,
 				2658651C236140CD0062B5A6 /* RootCell.swift */,
@@ -233,9 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				26586508236133310062B5A6 /* RootViewController.swift in Sources */,
+				26586521236178D20062B5A6 /* Colors.swift in Sources */,
 				2658651D236140CD0062B5A6 /* RootCell.swift in Sources */,
 				26586504236133310062B5A6 /* AppDelegate.swift in Sources */,
 				2658651B23613A1C0062B5A6 /* RootView.swift in Sources */,
+				26586523236AA83C0062B5A6 /* BlurLayerCreator.swift in Sources */,
 				2658651F2361432C0062B5A6 /* MainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

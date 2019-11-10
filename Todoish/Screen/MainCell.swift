@@ -24,9 +24,7 @@ class MainCell: RootCell {
         super.init(coder: coder)
     }
     
-    private func setupCell() {        
-        backgroundColor = .green
-        
+    private func setupCell() {                
         addSubview(label)
         
         label.widthToSuperview()
@@ -36,11 +34,13 @@ class MainCell: RootCell {
         label.textAlignment = .center
     }
     
-    func setupData(name: String) {
+    func setupData(name: String, color: UIColor) {
         label.text = name
+        backgroundColor = color
     }
     
     override func prepareForReuse() {
         label.text = ""
+        backgroundColor = .clear
     }
 }
