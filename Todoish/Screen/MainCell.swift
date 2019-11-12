@@ -34,8 +34,9 @@ class MainCell: RootCell {
         label.textAlignment = .center
     }
     
-    func setupData(name: String, color: UIColor) {
-        label.text = name
+    func setupData(item: ToDoItem, color: UIColor) {
+        label.text = item.getTitle()
+        accessoryType = item.getDone() ? .checkmark : .none
         backgroundColor = color
     }
     

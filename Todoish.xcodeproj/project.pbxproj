@@ -16,6 +16,7 @@
 		2658651F2361432C0062B5A6 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651E2361432C0062B5A6 /* MainCell.swift */; };
 		26586521236178D20062B5A6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586520236178D20062B5A6 /* Colors.swift */; };
 		26586523236AA83C0062B5A6 /* BlurLayerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */; };
+		26E3569A2377D86300C7F614 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E356992377D86300C7F614 /* ToDoItem.swift */; };
 		F274C465D8A459B6C374441D /* Pods_Todoish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		2658651E2361432C0062B5A6 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		26586520236178D20062B5A6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurLayerCreator.swift; sourceTree = "<group>"; };
+		26E356992377D86300C7F614 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		5B0AFC878F0B12C28B5D6589 /* Pods-Todoish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.release.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.release.xcconfig"; sourceTree = "<group>"; };
 		5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88480ECDB478131AA479658B /* Pods-Todoish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.debug.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				26586518236133740062B5A6 /* App */,
 				265865192361337E0062B5A6 /* Screen */,
 				26586517236133600062B5A6 /* Resources */,
+				26E3569B2377D86900C7F614 /* DataModel */,
 			);
 			path = Todoish;
 			sourceTree = "<group>";
@@ -105,6 +108,14 @@
 				2658651C236140CD0062B5A6 /* RootCell.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		26E3569B2377D86900C7F614 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				26E356992377D86300C7F614 /* ToDoItem.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		2B6839EDF1A4FA9B766B6E35 /* Pods */ = {
@@ -244,6 +255,7 @@
 				26586504236133310062B5A6 /* AppDelegate.swift in Sources */,
 				2658651B23613A1C0062B5A6 /* RootView.swift in Sources */,
 				26586523236AA83C0062B5A6 /* BlurLayerCreator.swift in Sources */,
+				26E3569A2377D86300C7F614 /* ToDoItem.swift in Sources */,
 				2658651F2361432C0062B5A6 /* MainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

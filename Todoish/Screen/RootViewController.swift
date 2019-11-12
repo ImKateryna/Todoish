@@ -13,17 +13,22 @@ import DynamicBlurView
 
 class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var myList = ["Task 1", "Task 2", "Task 3"]
+    var myList = [ToDoItem]()
     
     private let myView = RootView()
     
-    private let defaults = UserDefaults.standard
+    let dataFilePath = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
+        in: FileManager.SearchPathDomainMask.userDomainMask).first?.appendingPathComponent("MyToDo.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.view = myView
+        
+        
+        
+        print(dataFilePath)
         
         myView.myList.delegate = self
         myView.myList.dataSource = self
@@ -40,9 +45,20 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                          target: self,
                                                          action: #selector(addButtonPressed)),
                                          animated: true)
-        if let items = defaults.array(forKey: "ToDoList") as? [String] {
-            myList = items
-        }
+        
+//        if let items = defaults.array(forKey: "ToDoList") as? [ToDoItem] {
+//            myList = items
+//        }
+//
+//        for i in 0...2 {
+//                let item = ToDoItem()
+//                item.setData(withTitle: "Task \(i)")
+//                myList.append(item)
+//            }
+    
+        loadData()
+        
+        
         // navigationItem.rightBarButtonItem?.tintColor = .white
         
         
@@ -66,7 +82,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let newColor = Color.tanger.withAlphaComponent(CGFloat(indexPath.row+1)/CGFloat(myList.count))
         
-        cell.setupData(name: myList[indexPath.row], color: newColor)
+        cell.setupData(item: myList[indexPath.row], color: newColor)
         
         return cell
     }
@@ -74,11 +90,11 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        myList[indexPath.row].switchDone()
+        
+        tableView.cellForRow(at: indexPath)?.accessoryType = myList[indexPath.row].getDone() ? .checkmark : .none
+        
+        saveData()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -98,9 +114,11 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let action = UIAlertAction(title: "Add item",
                                    style: UIAlertAction.Style.default) { (action) in
-                                    if let newItem = textField.text {
+                                    if let newTitle = textField.text {
+                                        let newItem = ToDoItem()
+                                        newItem.setData(withTitle: newTitle)
                                         self.myList.append(newItem)
-                                        self.defaults.set(self.myList, forKey: "ToDoList")
+                                        self.saveData()
                                         self.myView.myList.reloadData()
                                     }
         }
@@ -151,6 +169,28 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         shape.add(animation, forKey: "Animation")
         
         return shape
+    }
+    
+    fileprivate func saveData() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(self.myList)
+            try data.write(to: self.dataFilePath!)
+        } catch {
+            print("Error encoding, \(error)")
+        }
+    }
+    
+    fileprivate func loadData() {
+        if let data = try? Data.init(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                myList = try decoder.decode([ToDoItem].self, from: data)
+            } catch {
+                print("Error decoding, \(error)")
+            }
+        }
     }
     
 }
