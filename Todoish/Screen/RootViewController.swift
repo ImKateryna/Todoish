@@ -10,6 +10,7 @@ import UIKit
 import CoreGraphics
 import CoreImage
 import DynamicBlurView
+import CoreData
 
 class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,7 +18,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private let myView = RootView()
     
-    let dataFilePath = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    private let dataFilePath = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
         in: FileManager.SearchPathDomainMask.userDomainMask).first?.appendingPathComponent("MyToDo.plist")
     
     override func viewDidLoad() {
@@ -56,7 +59,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
 //                myList.append(item)
 //            }
     
-        loadData()
+    //    loadData()
         
         
         // navigationItem.rightBarButtonItem?.tintColor = .white
@@ -90,9 +93,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-        myList[indexPath.row].switchDone()
-        
-        tableView.cellForRow(at: indexPath)?.accessoryType = myList[indexPath.row].getDone() ? .checkmark : .none
+        myList[indexPath.row].done = !myList[indexPath.row].done
+        tableView.cellForRow(at: indexPath)?.accessoryType = myList[indexPath.row].done ? .checkmark : .none
         
         saveData()
         
@@ -115,8 +117,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         let action = UIAlertAction(title: "Add item",
                                    style: UIAlertAction.Style.default) { (action) in
                                     if let newTitle = textField.text {
-                                        let newItem = ToDoItem()
-                                        newItem.setData(withTitle: newTitle)
+                                        
+                                        let newItem = ToDoItem(context: self.context)
+                                        newItem.title = newTitle
                                         self.myList.append(newItem)
                                         self.saveData()
                                         self.myView.myList.reloadData()
@@ -172,26 +175,25 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     fileprivate func saveData() {
-        let encoder = PropertyListEncoder()
+       // let encoder = PropertyListEncoder()
         
         do {
-            let data = try encoder.encode(self.myList)
-            try data.write(to: self.dataFilePath!)
+            try context.save()
         } catch {
-            print("Error encoding, \(error)")
+            print("Error saving context \(error)")
         }
     }
     
-    fileprivate func loadData() {
-        if let data = try? Data.init(contentsOf: dataFilePath!) {
-            let decoder = PropertyListDecoder()
-            do {
-                myList = try decoder.decode([ToDoItem].self, from: data)
-            } catch {
-                print("Error decoding, \(error)")
-            }
-        }
-    }
-    
+//    fileprivate func loadData() {
+//        if let data = try? Data.init(contentsOf: dataFilePath!) {
+//            let decoder = PropertyListDecoder()
+//            do {
+//                myList = try decoder.decode([ToDoItem].self, from: data)
+//            } catch {
+//                print("Error decoding, \(error)")
+//            }
+//        }
+//    }
+//
 }
 

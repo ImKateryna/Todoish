@@ -35,8 +35,8 @@ class MainCell: RootCell {
     }
     
     func setupData(item: ToDoItem, color: UIColor) {
-        label.text = item.getTitle()
-        accessoryType = item.getDone() ? .checkmark : .none
+        label.text = item.title
+        accessoryType = item.done ? .checkmark : .none
         backgroundColor = color
     }
     

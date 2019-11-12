@@ -16,7 +16,7 @@
 		2658651F2361432C0062B5A6 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658651E2361432C0062B5A6 /* MainCell.swift */; };
 		26586521236178D20062B5A6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586520236178D20062B5A6 /* Colors.swift */; };
 		26586523236AA83C0062B5A6 /* BlurLayerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */; };
-		26E3569A2377D86300C7F614 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E356992377D86300C7F614 /* ToDoItem.swift */; };
+		26E3569E237A456F00C7F614 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E3569C237A456F00C7F614 /* DataModel.xcdatamodeld */; };
 		F274C465D8A459B6C374441D /* Pods_Todoish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		2658651E2361432C0062B5A6 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		26586520236178D20062B5A6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		26586522236AA83C0062B5A6 /* BlurLayerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurLayerCreator.swift; sourceTree = "<group>"; };
-		26E356992377D86300C7F614 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		26E3569D237A456F00C7F614 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5B0AFC878F0B12C28B5D6589 /* Pods-Todoish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.release.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.release.xcconfig"; sourceTree = "<group>"; };
 		5B0B6FCE12BA715F08D4F733 /* Pods_Todoish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88480ECDB478131AA479658B /* Pods-Todoish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoish.debug.xcconfig"; path = "Target Support Files/Pods-Todoish/Pods-Todoish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		26E3569B2377D86900C7F614 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				26E356992377D86300C7F614 /* ToDoItem.swift */,
+				26E3569C237A456F00C7F614 /* DataModel.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 				26586504236133310062B5A6 /* AppDelegate.swift in Sources */,
 				2658651B23613A1C0062B5A6 /* RootView.swift in Sources */,
 				26586523236AA83C0062B5A6 /* BlurLayerCreator.swift in Sources */,
-				26E3569A2377D86300C7F614 /* ToDoItem.swift in Sources */,
+				26E3569E237A456F00C7F614 /* DataModel.xcdatamodeld in Sources */,
 				2658651F2361432C0062B5A6 /* MainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		26E3569C237A456F00C7F614 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				26E3569D237A456F00C7F614 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 26E3569D237A456F00C7F614 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 265864F8236133310062B5A6 /* Project object */;
 }
