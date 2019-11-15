@@ -12,6 +12,7 @@ import TinyConstraints
 class RootView: UIView {
     
     let myList = UITableView()
+    let label = UILabel()
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -37,11 +38,19 @@ class RootView: UIView {
         backgroundColor = .blue
         
         self.addSubview(myList)
+        self.addSubview(label)
         
         myList.heightToSuperview()
         myList.widthToSuperview()
         myList.separatorStyle = .none
         
+        
+        label.text = "TestDetailsVC"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 30)
+        label.bottomToSuperview(offset: -20)
+        label.centerXToSuperview()
+        label.isUserInteractionEnabled = true
         
 //        let shape = CAShapeLayer()
 //        self.layer.addSublayer(shape)

@@ -11,14 +11,17 @@ import CoreGraphics
 import CoreImage
 import DynamicBlurView
 
-class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TestFunctionalityDelegate {
     
     var myList = [ToDoItem]()
     
     private let myView = RootView()
+    private var tableColor = Color.tanger
+    
+    private var detailsTransitioningDelegate: InteractiveModalTransitioningDelegate!
     
     let dataFilePath = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
-        in: FileManager.SearchPathDomainMask.userDomainMask).first?.appendingPathComponent("MyToDo.plist")
+                                                in: FileManager.SearchPathDomainMask.userDomainMask).first?.appendingPathComponent("MyToDo.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,30 +48,12 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                          target: self,
                                                          action: #selector(addButtonPressed)),
                                          animated: true)
+        myView.label.isUserInteractionEnabled = true
+        myView.label.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                 action: #selector(labelDidTap)))
         
-//        if let items = defaults.array(forKey: "ToDoList") as? [ToDoItem] {
-//            myList = items
-//        }
-//
-//        for i in 0...2 {
-//                let item = ToDoItem()
-//                item.setData(withTitle: "Task \(i)")
-//                myList.append(item)
-//            }
-    
+        
         loadData()
-        
-        
-        // navigationItem.rightBarButtonItem?.tintColor = .white
-        
-        
-//        let blurView = DynamicBlurView(frame: UIScreen.main.bounds)
-//        blurView.blurRadius = 5
-//        myView.addSubview(blurView)
-//
-//        blurView.trackingMode = .none
-//        blurView.animate()
-        
     }
     
     //MARK - TableView Methods
@@ -80,7 +65,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.identifier, for: indexPath) as! MainCell
         
-        let newColor = Color.tanger.withAlphaComponent(CGFloat(indexPath.row+1)/CGFloat(myList.count))
+        let newColor = tableColor.withAlphaComponent(CGFloat(indexPath.row+1)/CGFloat(myList.count))
         
         cell.setupData(item: myList[indexPath.row], color: newColor)
         
@@ -191,6 +176,31 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Error decoding, \(error)")
             }
         }
+    }
+    
+    @objc func labelDidTap() {
+        print("labelTapped")
+        let destinationVC = TestViewController()
+        destinationVC.delegate = self
+        
+        detailsTransitioningDelegate = InteractiveModalTransitioningDelegate(from: self, to: destinationVC)
+        destinationVC.modalPresentationStyle = .custom
+        destinationVC.transitioningDelegate = detailsTransitioningDelegate
+        let transition = CATransition()
+        transition.duration = 3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        destinationVC.view.layer.add(transition, forKey: nil)
+        present(destinationVC, animated: false, completion: nil)
+        
+       // present(controller, animated: true, completion: nil)
+    }
+    
+    func userWantsToChangeColor(color: UIColor) {
+        print("COLOR: ", color)
+        tableColor = color
+        myView.myList.reloadData()
     }
     
 }
