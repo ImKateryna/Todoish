@@ -7,6 +7,5 @@ target 'Todoish' do
 
   # Pods for Todoish
   pod "TinyConstraints"
-  pod "DynamicBlurView"
 
 end

@@ -1,20 +1,16 @@
 PODS:
-  - DynamicBlurView (4.0.0)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
-  - DynamicBlurView
   - TinyConstraints
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - DynamicBlurView
     - TinyConstraints
 
 SPEC CHECKSUMS:
-  DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 1cb38f9dafc4a5e1928a83a64d8ed63e0f7e5182
+PODFILE CHECKSUM: 610282036d3d240bf9bbe6e5925bc1892358d029
 
 COCOAPODS: 1.7.5

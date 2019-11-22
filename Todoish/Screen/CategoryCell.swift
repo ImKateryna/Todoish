@@ -10,7 +10,7 @@ import UIKit
 import TinyConstraints
 
 
-class MainCell: RootCell {
+class CategoryCell: RootCell {
     
     private let label = UILabel()
 
@@ -24,25 +24,23 @@ class MainCell: RootCell {
         super.init(coder: coder)
     }
     
-    private func setupCell() {                
+    private func setupCell() {
         addSubview(label)
         
         label.widthToSuperview()
         label.heightToSuperview()
         
-        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.heavy)
         label.textAlignment = .center
     }
     
-    func setupData(item: ToDoItem, color: UIColor) {
-        label.text = item.title
-        accessoryType = item.done ? .checkmark : .none
-        backgroundColor = color
+    func setupData(item: Category, color: UIColor) {
+        label.text = item.name
+        label.textColor = color
     }
     
     override func prepareForReuse() {
         label.text = ""
         backgroundColor = .clear
-        accessoryType = .none
     }
 }

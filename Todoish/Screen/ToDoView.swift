@@ -9,17 +9,10 @@
 import UIKit
 import TinyConstraints
 
-class RootView: UIView {
+class ToDoView: UIView {
     
-    let myList = UITableView()
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    let tableview = UITableView()
+    let searchBar = UISearchBar()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,11 +29,21 @@ class RootView: UIView {
     private func setupView() {
         backgroundColor = .blue
         
-        self.addSubview(myList)
+        self.addSubview(tableview)
+        self.addSubview(searchBar)
         
-        myList.heightToSuperview()
-        myList.widthToSuperview()
-        myList.separatorStyle = .none
+        searchBar.widthToSuperview()
+        searchBar.topToSuperview(offset: 86)
+        searchBar.prompt = "Call"
+        searchBar.height(80)
+       // searchBar.searchBarStyle = .minimal
+        searchBar.backgroundColor = .white
+        print(searchBar.frame)
+        
+        tableview.topToBottom(of: searchBar)
+        tableview.bottomToSuperview()
+        tableview.widthToSuperview()
+        tableview.separatorStyle = .none
         
         
 //        let shape = CAShapeLayer()
