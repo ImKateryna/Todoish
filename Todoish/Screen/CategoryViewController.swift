@@ -11,11 +11,13 @@ import CoreGraphics
 import CoreImage
 //import DynamicBlurView
 import CoreData
+import RealmSwift
 
 class CategoryViewController: UIViewController {
     
-    private var myCategoeries = [Category]()
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let realm = try! Realm()
+    
+    private var myCategoeries: Results<Category>? = nil
     private let myView = CategoryView()
 
     override func viewDidLoad() {
@@ -53,14 +55,10 @@ class CategoryViewController: UIViewController {
 
         let action = UIAlertAction(title: "Add category",
                                    style: UIAlertAction.Style.default) { (action) in
-                                    if let newName = textField.text {
-
-                                        let newCategory = Category(context: self.context)
-                                        newCategory.name = newName
-                                        self.myCategoeries.append(newCategory)
-                                        self.saveData()
+                                        let newCategory = Category()
+                                    newCategory.name = textField.text!
+                                        self.save(newCategory)
                                         self.myView.categoryList.reloadData()
-                                    }
         }
 
         alert.addTextField { (alertTextField) in
@@ -74,23 +72,21 @@ class CategoryViewController: UIViewController {
     }
 
 
-    fileprivate func saveData() {
+    fileprivate func save(_ category: Category) {
         // let encoder = PropertyListEncoder()
 
         do {
-            try context.save()
+            try realm.write {
+                realm.add(category)
+            }
         } catch {
             print("Error saving context \(error)")
         }
     }
 
-    fileprivate func loadData(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
-        do {
-            let data = try context.fetch(request)
-            myCategoeries = data
-        } catch {
-            print("Error fetching data: \(error)")
-        }
+    fileprivate func loadData() {
+        
+        myCategoeries = realm.objects(Category.self)
 
         myView.categoryList.reloadData()
     }
@@ -102,25 +98,24 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myCategoeries.count
+        return myCategoeries?.count ?? 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
 
-        let newColor = Color.darkBlue.withAlphaComponent(CGFloat(indexPath.row+1)/CGFloat(myCategoeries.count))
+        let newColor = Color.darkBlue.withAlphaComponent(CGFloat(indexPath.row+1)/CGFloat(myCategoeries?.count ?? 1))
 
-        cell.setupData(item: myCategoeries[indexPath.row], color: newColor)
+        cell.setupData(name: myCategoeries?[indexPath.row].name ?? "No categories yet", color: newColor)
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
 
        let distanationVC = ToDoViewController()
-        distanationVC.navigationItem.title = myCategoeries[indexPath.row].name
-        distanationVC.selectedCategory = myCategoeries[indexPath.row]
+        distanationVC.navigationItem.title = myCategoeries?[indexPath.row].name ?? "No categories yet"
+        distanationVC.selectedCategory = myCategoeries?[indexPath.row]
         navigationController?.pushViewController(distanationVC, animated: true)
         
         tableView.cellForRow(at: indexPath)?.isSelected = false

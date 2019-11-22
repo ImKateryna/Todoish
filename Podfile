@@ -8,5 +8,6 @@ target 'Todoish' do
   # Pods for Todoish
   pod "TinyConstraints"
   pod 'RealmSwift'
+  pod 'SwipeCellKit'
 
 end

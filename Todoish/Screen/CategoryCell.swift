@@ -34,8 +34,8 @@ class CategoryCell: RootCell {
         label.textAlignment = .center
     }
     
-    func setupData(item: Category, color: UIColor) {
-        label.text = item.name
+    func setupData(name: String, color: UIColor) {
+        label.text = name
         label.textColor = color
     }
     
