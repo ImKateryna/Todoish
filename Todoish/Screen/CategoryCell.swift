@@ -8,7 +8,7 @@
 
 import UIKit
 import TinyConstraints
-
+import ChameleonFramework
 
 class CategoryCell: RootCell {
     
@@ -34,9 +34,14 @@ class CategoryCell: RootCell {
         label.textAlignment = .center
     }
     
-    func setupData(name: String, color: UIColor) {
-        label.text = name
-        label.textColor = color
+    func setupData(of categoty: Category?) {
+        if let currentCategory = categoty {
+            label.text = currentCategory.name
+            label.backgroundColor = UIColor(hexString: currentCategory.color) ?? .black
+            label.textColor = ContrastColorOf(backgroundColor: label.backgroundColor!, returnFlat: true)
+        } else {
+            label.text = "No categories added yet"
+        }
     }
     
     override func prepareForReuse() {
@@ -44,3 +49,4 @@ class CategoryCell: RootCell {
         backgroundColor = .clear
     }
 }
+

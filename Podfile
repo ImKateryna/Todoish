@@ -9,5 +9,6 @@ target 'Todoish' do
   pod "TinyConstraints"
   pod 'RealmSwift'
   pod 'SwipeCellKit'
+  pod 'ChameleonFramework/Swift'
 
 end

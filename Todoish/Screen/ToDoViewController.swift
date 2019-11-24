@@ -9,7 +9,7 @@
 import RealmSwift
 import UIKit
 
-class ToDoViewController: UIViewController {
+class ToDoViewController: SwipeViewController {
     
     var myList: Results<ToDoItem>?
     let realm = try! Realm()
@@ -91,6 +91,18 @@ class ToDoViewController: UIViewController {
         myView.tableview.reloadData()
     }
     
+    override func deleteObject(at indexPath: IndexPath) {
+        if let item = myList?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(item)
+                }
+            } catch {
+                print("Error to delete an item: \(error)")
+            }
+        }
+    }
+    
 }
 
 //MARK - TableView Methods
@@ -98,23 +110,20 @@ class ToDoViewController: UIViewController {
 extension ToDoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("MyList:", myList?.count ?? "NONE")
         return myList?.count ?? 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.identifier, for: indexPath) as! MainCell
         
-        let newColor = Color.tanger.withAlphaComponent(CGFloat(indexPath.row+1)/CGFloat(myList?.count ?? 1))
-        print("Cell for raw")
         
         if let item = myList?[indexPath.row] {
-            cell.setupData(title: item.title, isDone: item.done, color: newColor)
-            print("Some item")
+            let newColor = UIColor.init(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(myList!.count))
+            cell.setupData(title: item.title, isDone: item.done, color: newColor ?? UIColor.clear)
         } else {
             cell.setupData(title: "No items added", isDone: false, color: UIColor.clear)
-            print("No items")
         }
+        cell.delegate = self
         
         return cell
     }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class RootCell: UITableViewCell {
+class RootCell: SwipeTableViewCell {
 
     static var identifier: String {return String(describing: self) }
 }

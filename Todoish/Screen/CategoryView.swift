@@ -28,6 +28,8 @@ class CategoryView: UIView {
     func setupView() {
         addSubview(categoryList)
         
+        categoryList.separatorStyle = .none
+        
         categoryList.widthToSuperview()
         categoryList.heightToSuperview()
     }

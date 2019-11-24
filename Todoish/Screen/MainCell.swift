@@ -8,7 +8,7 @@
 
 import UIKit
 import TinyConstraints
-
+import ChameleonFramework
 
 class MainCell: RootCell {
     
@@ -38,6 +38,7 @@ class MainCell: RootCell {
         label.text = title
         accessoryType = isDone ? .checkmark : .none
         backgroundColor = color
+        label.textColor = ContrastColorOf(backgroundColor: color, returnFlat: true)
     }
     
     override func prepareForReuse() {

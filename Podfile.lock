@@ -1,4 +1,7 @@
 PODS:
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Realm (3.19.0):
     - Realm/Headers (= 3.19.0)
   - Realm/Headers (3.19.0)
@@ -8,23 +11,26 @@ PODS:
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift
   - RealmSwift
   - SwipeCellKit
   - TinyConstraints
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ChameleonFramework
     - Realm
     - RealmSwift
     - SwipeCellKit
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Realm: 995d585bcf699aaff226715886c849a29dd3d07f
   RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 51e6e98f64d81db663dd587584b82b8f1e124955
+PODFILE CHECKSUM: 9f356cc0ec481d5b997dfc68e587aa91441f196a
 
 COCOAPODS: 1.7.5
